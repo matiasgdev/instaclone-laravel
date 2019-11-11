@@ -5,7 +5,9 @@
         <img class="avatar" src="{{ route('user.avatar' , ['filename' => $image->user->image ]) }}" alt="Avatar">
       </div>	
     @endif
-    {{ $image->user->name . ' ' . $image->user->surname }}
+    <a class="text-dark" href="{{ route('user.profile', ['id' => $image->user->id]) }}">
+       {{ $image->user->name . ' ' . $image->user->surname }} 
+    </a>
     <span class="Post__date"> {{  \FormatTime::LongTimeFilter($image->created_at)}} </span>
 
   </div>
@@ -48,7 +50,7 @@
         </span>
         <br>
         <span class="Post__info--viewComments">
-          <a href="">Ver comentarios ({{ count($image->comments) }})  </a>
+          <a href="{{route('image.detail', ['id' => $image->id])}}">Ver comentarios ({{ count($image->comments) }})  </a>
         </span>
       </div>
 

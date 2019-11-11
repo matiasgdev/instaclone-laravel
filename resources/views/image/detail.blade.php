@@ -48,10 +48,20 @@
 								@endif
 	
 							</span>
+							
 							<span class="Post__info--user"> {{ '@'.$image->user->nick }} </span>
 							<span class="Post__info--description text-muted">
 								{{ $image->description }}
 							</span>
+							@if (Auth::user() && Auth::user()->id === $image->user->id)
+								<span class="Post__info--actions">
+									@include('includes.modal')
+									<a class="text-info" href="{{route('image.edit', ['id' => $image->id])}}">
+										Editar
+									</a>
+								</span>
+							@endif
+							
 							<br>
 						</div>
 

@@ -42,9 +42,17 @@ Route::post('/user/edit', 'UserController@update')->name('user.update');
 
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
 
+Route::get('/perfil/{id}', 'UserController@profile')->name('user.profile');
+
 Route::get('/subir-imagen/', 'ImageController@create')->name('image.create');
 
 Route::post('/image/save', 'ImageController@save')->name('image.save');
+
+Route::get('/image/delete/{id}', 'ImageController@delete')->name('image.delete');
+
+Route::get('/image/edit/{id}', 'ImageController@edit')->name('image.edit');
+
+Route::post('/image/update', 'ImageController@update')->name('image.update');
 
 Route::get('/post/file/{filename}', 'ImageController@getImage')->name('image.file');
 
@@ -59,6 +67,8 @@ Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
 Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete');
 
 Route::get('/likes', 'LikeController@index')->name('like.index');
+
+
 
 
 

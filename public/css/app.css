@@ -11199,6 +11199,15 @@ a.text-dark:focus {
   color: rgba(128, 128, 128, 0.6);
 }
 
+.Post__info--actions {
+  float: right;
+  margin-right: 2.5em;
+}
+
+.Post__info--actions a {
+  margin-left: 0.5em;
+}
+
 .Post__pagination {
   display: -webkit-box;
   display: flex;
