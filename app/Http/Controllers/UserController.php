@@ -15,6 +15,23 @@ class UserController extends Controller {
 		$this->middleware('auth');
 	}
 
+	public function index(Request $request, $search_query = null) {
+
+		$search_query = $request->input('search_query');
+
+		if (!empty($search_query)) {
+			 $users = User::where('nick', 'LIKE', '%'. $search_query .'%')
+			 		->orWhere('name', 'LIKE', '%' . $search_query . '%')
+			 		->orWhere('surname', 'LIKE', '%' . $search_query . '%')
+					->orderBy('id', 'desc')
+					->paginate(5);
+		} else {
+			$users = User::orderBy('id', 'desc')->paginate(5);
+		}
+
+		return view('user.index', ['users' => $users]);
+	}
+
 	public function config() {
 
 		return view('user.config');
@@ -80,4 +97,7 @@ class UserController extends Controller {
 			'user' => $user
 		]);
 	}
+
+
+
 }

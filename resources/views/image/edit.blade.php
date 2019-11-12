@@ -20,7 +20,7 @@
 								<div class="form-group row">
 									<label class="col-md-3 col-form-label text-md-right" for="image_path"> Imagen </label>
 									<div class="col-md-7">
-										<input class="form-control-file  @error('image_path') is-invalid @enderror" type="file" id="image_path" name="image_path" required >
+										<input class="form-control-file  @error('image_path') is-invalid @enderror" type="file" id="image_path" name="image_path">
 										
 									@error('image_path')
 										<span class="invalid-feedback" role="alert">

@@ -66,7 +66,9 @@ Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
 
 Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete');
 
-Route::get('/likes', 'LikeController@index')->name('like.index');
+Route::get('/favoritos', 'LikeController@index')->name('like.index');
+
+Route::get('/explorar/{search_query?}', 'UserController@index')->name('user.index');
 
 
 

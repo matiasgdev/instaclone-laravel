@@ -26,7 +26,7 @@ class ImageController extends Controller
 
 		$validate = $request->validate([
 			'image_path' => ['required', 'image'],
-			'description' => ['required', 'min:25']
+			'description' => ['required', 'min:5']
 		]);
 		
 		$image_path = $request->file('image_path');
@@ -118,11 +118,31 @@ class ImageController extends Controller
 	}
 
 	public function update(Request $request) {
+
+		$validate = $request->validate([
+			'image_id' => ['required'],
+			'image_path' => ['image'],
+			'description' => ['required', 'min:5']
+		]);
+
 		$image_id = $request->input('image_id');
+		$image_path = $request->file('image_path');
 		$description = $request->input('description');
 
-		var_dump($image_id);
-		var_dump($description);
-		exit('Exit!');
+		//Get image object
+		$image = Image::find($image_id);
+		$image->description = $description;
+
+
+		if ($image_path) {
+			$image_path_name = time().$image_path->getClientOriginalName();
+			Storage::disk('images')->put($image_path_name, File::get($image_path));
+			$image->image_path = $image_path_name;
+		}
+
+		$image->update();
+
+		return redirect()->route('image.detail', ['id' => $image_id]);
+		
 	}
 } 

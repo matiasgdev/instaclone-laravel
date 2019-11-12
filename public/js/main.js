@@ -69,4 +69,11 @@ window.addEventListener('load', () => {
 	}
 	dislike();
 
+
+	// Search bar
+
+	$('#searcher').submit(function(e) {
+		e.preventDefault();
+	})
+
 });

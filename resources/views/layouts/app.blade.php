@@ -62,6 +62,9 @@
                                 <a class="nav-link" href=" {{ route('like.index') }} "> Favoritos </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href=" {{ route('user.index') }} "> Explorar </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href=" {{ route('image.create') }} "> Subir imagen </a>
                             </li>
 
