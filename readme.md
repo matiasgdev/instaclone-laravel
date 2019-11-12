@@ -1,2 +1,2 @@
-# A clone of Instagram
+# A clone of Instagram by matiasgdev
 
